@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+#menubar{
+	width: 20%;
+	height: 50px;
+	float: left;
+}
+
+#menu{
+	padding-top: 25px;
+	padding-left: 90px;
+	color: gray;
+	font-weight: bold;
+}
+
+#line{
+	margin-top : 20px;
+	color: gray;
+	width: 160px;
+	margin-left: 90px;
+}
+
+#list{
+	margin-top : 25px;
+	font-size : 14px;
+	list-style-type: none;
+	margin-left: 50px;
+	color: gray;
+}
+
+a{
+	text-decoration: none;
+	
+} 
+
+#noticez:link {
+	color: gray;	
+}
+#noticez:visited {
+	color: gray;	
+}
+#suggestionz:link {
+	color: gray;
+}
+#suggestionz:visited {
+	color: gray;
+}

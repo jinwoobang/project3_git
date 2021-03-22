@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.newjoin2{
+margin-top : 150px;
+border: 1px solid black;
+width: 500px;
+height: 400px;
+margin-left: 400px;
+border-radius: 20px;
+}
+
+.loginid{
+	margin-left: 50px;
+	margin-top : 30px;
+	width: 350px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.loginpw{
+	margin-left: 50px;
+	margin-top : 15px;
+	width: 350px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+#chk{
+	margin-left: 45px;
+}
+
+#idsave{
+	border: 0px;
+}
+
+#loginbt{
+	margin-top : 20px;
+	margin-left : 50px;
+	width: 380px;
+	height: 40px;
+	background-color: black;
+	color: white;
+}
+
+.bbb{
+	text-decoration: none;
+	margin-top: 15px;
+}
+
+.bbb > a:link{
+	color: black;
+}
+
+.bbb > a:visited{
+	color: black;
+}
+
+.bbb > a{
+	border: 0px;
+	width: 90px;
+	
+}
+
+.bbb > a:first-child{
+	margin-left: 90px;
+}

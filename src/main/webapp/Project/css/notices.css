@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+h1{
+	text-align: center;
+}
+
+table,th,tr,td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td{
+	position:relative;
+	width: 500px;
+	height: 30px;
+	text-align: center;
+	
+}
+
+ th{
+	background-color: black;
+	color: white;
+}
+
+.aa{
+	position: relative;
+	/* margin-left: 1450px; */
+	margin-left: 20px;
+}
+
+.table{
+	position: relative;
+	margin-top: 10px;
+}
+
+#searchtext{
+	position : relative;
+	height: 20px;
+	margin-left: 1290px;
+}
+
+#searchbutton{
+	height: 25px;
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+
+ .page_main{
+	padding-top: 40px;
+} 
+
+.page_main > p{
+	display: inline;
+	padding-left: 8px;
+	
+}
+
+#number{
+	position : relative;
+	margin-left: 700px;
+} 

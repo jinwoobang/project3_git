@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjw.board.mapper">
+	<insert id="insertBoard" parameterType="com.bjw.board.BoardBean">
+	INSERT INTO NOTICEBOARD VALUES(NOTICEBOARD_SEQ.NEXTVAL,#{title},#{writer},#{contents},#{filename},SYSDATE,#{hit})
+	</insert>
+	
+	<select id="selectBoard" resultType="com.bjw.board.BoardBean">
+		SELECT * FROM NOTICEBOARD
+	</select>
+	
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM NOTICEBOARD WHERE NO=#{VALUE}
+	</delete>
+	
+	<select id="selectInfo" parameterType="int" resultType="com.bjw.board.BoardBean">
+		SELECT * FROM NOTICEBOARD WHERE NO=#{VALUE}
+	</select>
+	
+	<update id="updateHitBoard" parameterType="int">
+		UPDATE NOTICEBOARD SET HIT=HIT+1 WHERE NO=#{VALUE}
+	</update>
+	
+	<update id="modifyBoard" parameterType="com.bjw.board.BoardBean">
+	UPDATE NOTICEBOARD SET WRITER=#{writer},TITLE=#{title},CONTENTS=#{contents},FILENAME=#{filename,jdbcType=VARCHAR},REGDATE=SYSDATE WHERE NO=#{no}
+	</update>
+	
+	<select id="newOrder" resultType="com.bjw.board.BoardBean">
+		SELECT * FROM NOTICEBOARD ORDER BY REGDATE DESC
+	</select>
+	
+	<select id="oldOrder" resultType="com.bjw.board.BoardBean">
+		SELECT * FROM NOTICEBOARD ORDER BY REGDATE
+	</select>
+	
+	<select id="searchBoard" parameterType="String" resultType="com.bjw.board.BoardBean">
+		SELECT * FROM NOTICEBOARD WHERE TITLE LIKE '%'||#{VALUE}||'%' OR WRITER LIKE '%'||#{VALUE}||'%'
+	</select>
+</mapper>

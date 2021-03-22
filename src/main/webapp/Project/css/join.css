@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+.newjoin{
+margin-top : 30px;
+border: 1px solid black;
+width: 500px;
+height: 970px;
+margin-left: 400px;
+border-radius: 20px;
+}
+
+#main{
+	text-align: center;
+}
+
+#joinlist{
+	position:relative;
+	margin-left: 50px;
+	font-size: 20px;
+	
+}
+
+.common{
+	 position : relative; 
+	margin-left: 50px;
+	height: 30px;
+	width: 400px;
+	border-radius: 10px;
+	border: 1px solid gray;
+}
+
+.id{
+	position : relative;
+	margin-left: 50px;
+	margin-top: -200px;
+	height: 30px;
+	width: 300px;
+	border-radius: 10px;
+	border: 1px solid gray;
+	line-height: 50px;
+}
+
+.idcheck{
+	height: 30px;
+	background-color: black;
+	color: white;
+}
+
+#year{
+	position : relative;
+	margin-left: 50px;
+	height: 25px;
+	width : 115px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+#month{
+	position : relative;
+	height: 25px;
+	width : 115px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+#day{
+	position : relative;
+	height: 25px;
+	width : 115px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+#email1{
+	margin-left: 50px;
+	position : relative;
+	height: 25px;
+	width : 180px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+#email2{
+	position : relative;
+	height: 25px;
+	width : 180px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+#address1{
+	margin-left: 50px;
+	position : relative;
+	height: 30px;
+	width : 300px;
+	border-radius: 10px;
+	border: 1px solid gray;
+}
+
+#arsearch{
+	height: 30px;
+	background-color: black;
+	color: white;
+}
+
+#su{
+	text-align: center;
+	height: 30px;
+	width: 120px;
+	margin-left: 190px;
+	background-color: black;
+	color: white;
+}
+
+#hp1{
+	margin-left: 50px;
+	height: 25px;
+	width : 115px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+#hp2{
+	height: 20px;
+	width : 115px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+#hp3{
+	height: 20px;
+	width : 115px;
+	border-radius: 5px;
+	border: 1px solid gray;
