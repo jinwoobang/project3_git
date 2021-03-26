@@ -14,13 +14,24 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- 다운로드시 필요 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	  <beans:property name="order" value="0"></beans:property>
+	</beans:bean>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- <beans:property name="prefix" value="/WEB-INF/views/" /> -->
 		<beans:property name="prefix" value="/" />
 		<beans:property name="suffix" value=".jsp" />
+		
+		<!-- 다운로드시 필요 -->
+		<beans:property name="order" value="1"></beans:property>
 	</beans:bean>
+	
+	<!-- 다운로드 시 필요  Controller의 return ViewName과 맞아야 함 -->
+	<beans:bean id="download" class="com.bjw.board.DownloadView"></beans:bean>
 	
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	  <beans:property name="defaultEncoding" value="UTF-8"></beans:property>

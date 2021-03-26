@@ -46,7 +46,8 @@ th{
 	height: 25px;
 	background-color: black;
 	color: white;
-	margin-left: 1450px;
+	/* margin-left: 1450px; */
+	margin-left: 1300px;
 }
 
 #listm{
@@ -63,6 +64,16 @@ th{
 	position : relative;
 	margin-top: 30px;
 	width: 70px;
+	height: 25px;
+	background-color: black;
+	color: white;
+	margin-left: 5px;
+}
+
+#download{
+	position : relative;
+	margin-top: 30px;
+	width: 140px;
 	height: 25px;
 	background-color: black;
 	color: white;
@@ -134,6 +145,7 @@ ${selectInfo.contents }
 <input type="button" id="listn" value="목록">
 <input type="button" id="listm" name="listMod" value="수정">
 <input type="button" id="listd" name="listDelete" value="삭제">
+<a href="/web/downloadAction.do?filename=${selectInfo.filename }"><input type="button" value="${selectInfo.filename } 다운로드" id="download"></a>
 </div>
 </div>
 </body>

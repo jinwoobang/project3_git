@@ -2,6 +2,7 @@ package com.bjw.board;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class BoardController {
@@ -138,7 +140,15 @@ public class BoardController {
 		return "Project/other/notice";
 	}
 	
-	
+	@RequestMapping(value="downloadAction.do")
+	public ModelAndView downloadStream(String filename) {
+		String loc="C:\\Webproject\\project3\\Web\\src\\main\\webapp\\upload\\";
+		System.out.println(filename);
+		File file=new File(loc+filename);
+		HashMap<String, File>map=new HashMap<>();
+		map.put("action", file);
+		return new ModelAndView("download",map); //downLoad는 servlet-context의 download와 맞아야 함(DownloadView.java)
+	}
 	
 	
 	
