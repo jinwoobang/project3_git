@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.AbstractView;
 public class DownloadView extends AbstractView {
 	
 	public DownloadView() {
+		// 객체가 생성될 때 content type을 다음과 같이 변경
 		this.setContentType("application/download;utf-8");
 	}
 	
