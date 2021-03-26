@@ -131,8 +131,10 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="noticeSearch.do")
-	public String searchBoard(String search,Model model) throws Exception {
-		model.addAttribute("list",service.searchBoard(search));
+	public String searchBoard(String search,String query,Model model) throws Exception {
+		System.out.println(query);
+		/*model.addAttribute("list",service.searchBoard(search));*/
+		model.addAttribute("list",service.searchBoard(search,query));
 		return "Project/other/notice";
 	}
 	

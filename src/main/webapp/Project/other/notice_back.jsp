@@ -22,13 +22,32 @@
 		});
 		
 		$("#searchbutton").click(function(){
-			var query=$("#query").val();
 			var data=$("#searchtext").val();
-			 document.location.href="/web/noticeSearch.do?query="+query+"&search="+data; 
-			/* document.location.href="/web/noticeSearch.do?search="+data; */
+			document.location.href="/web/noticeSearch.do?search="+data;
 			//원하는 결과가 서치 일 경우만 
 			
-		});	
+		});
+		
+	/* 	$("#searchtext").keyup(function(){
+			
+			$.ajax({
+				url:'/web/noticeSearch.do',
+				dataType:'text',
+				type:'POST',
+				data:{data:$("#searchtext").val()},
+				success:function(v){
+					alert(v);
+					var temp =""; 
+					temp +=  
+				},
+				error:function(){
+					alert('error');
+				}
+			});
+		}) */
+		
+		
+		
 	});
 </script>
 <style type="text/css">
@@ -63,12 +82,6 @@
 #oldorder:visited {
 	color: #393939;
 }
-
-#query{
-	position: relative;
-	margin-left:1080px;
-	
-}
 </style>
 </head>
 <body>
@@ -79,11 +92,6 @@
 <div class="aa">
 <a href="/web/new.do" id="neworder">최신순 |</a>&nbsp;
 <a href="/web/old.do" id="oldorder">오래된 순</a>
-<select style="width: 200px; height:25px;" id="query" name="query">
-<option selected="selected" value="empty">선택하세요</option>
-<option value="title">title</option>
-<option value="writer">writer</option>
-</select>&nbsp;
 <input type="text" id="searchtext" name="searchtext">&nbsp;<input type="button" id="searchbutton" value="search">
 </div>
 <table class="table">

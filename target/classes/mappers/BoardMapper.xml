@@ -35,7 +35,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM NOTICEBOARD ORDER BY REGDATE
 	</select>
 	
-	<select id="searchBoard" parameterType="String" resultType="com.bjw.board.BoardBean">
-		SELECT * FROM NOTICEBOARD WHERE TITLE LIKE '%'||#{VALUE}||'%' OR WRITER LIKE '%'||#{VALUE}||'%'
+	<select id="searchBoard" parameterType="java.util.HashMap" resultType="com.bjw.board.BoardBean">
+		 SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE
+		${query} LIKE '%'||#{search}||'%'
+		<!-- SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE TITLE LIKE '%'||#{VALUE}||'%' OR
+	WRITER LIKE '%'||#{VALUE}||'%' -->
 	</select>
 </mapper>

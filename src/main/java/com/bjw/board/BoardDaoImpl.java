@@ -1,5 +1,6 @@
 package com.bjw.board;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -59,8 +60,12 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardBean> searchBoard(String search) throws Exception {
-		return sql.selectList(namespace+".searchBoard",search);
+	public List<BoardBean> searchBoard(String search,String query) throws Exception {
+		HashMap<String, Object>map=new HashMap<>();
+		map.put("search", search);
+		map.put("query", query);
+		/*return sql.selectList(namespace+".searchBoard",search);*/
+		return sql.selectList(namespace+".searchBoard",map);
 	}
 	
 }
