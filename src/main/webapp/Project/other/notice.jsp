@@ -23,7 +23,15 @@
 		
 		$("#searchbutton").click(function(){
 			var query=$("#query").val();
+			var query2=$("#query");
 			var data=$("#searchtext").val();
+			var data2=$("#searchtext");
+			if(query=="empty"||data.length==0){
+				alert('No suchElement');
+				query2.prop("selectedIndex",0);
+				data2.val('');
+				return false;
+			}
 			 document.location.href="/web/noticeSearch.do?query="+query+"&search="+data; 
 			/* document.location.href="/web/noticeSearch.do?search="+data; */
 			//원하는 결과가 서치 일 경우만 
@@ -81,8 +89,8 @@
 <a href="/web/old.do" id="oldorder">오래된 순</a>
 <select style="width: 200px; height:25px;" id="query" name="query">
 <option selected="selected" value="empty">선택하세요</option>
-<option value="title">title</option>
-<option value="writer">writer</option>
+<option value="title">제목</option>
+<option value="writer">글쓴이</option>
 </select>&nbsp;
 <input type="text" id="searchtext" name="searchtext">&nbsp;<input type="button" id="searchbutton" value="search">
 </div>

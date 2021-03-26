@@ -37,7 +37,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="searchBoard" parameterType="java.util.HashMap" resultType="com.bjw.board.BoardBean">
 		 SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE
-		${query} LIKE '%'||#{search}||'%'
+		 <if test="query!=null and search!=null">${query} LIKE '%'||#{search}||'%'</if>
+		 
+		
+		
 		<!-- SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE TITLE LIKE '%'||#{VALUE}||'%' OR
 	WRITER LIKE '%'||#{VALUE}||'%' -->
 	</select>
