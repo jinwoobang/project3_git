@@ -141,7 +141,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="downloadAction.do")
-	public ModelAndView downloadStream(String filename) {
+	public ModelAndView downloadStream(String filename) throws Exception {
 		String loc="C:\\Webproject\\project3\\Web\\src\\main\\webapp\\upload\\";
 		System.out.println(filename);
 		File file=new File(loc+filename);
