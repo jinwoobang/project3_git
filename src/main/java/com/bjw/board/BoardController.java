@@ -147,7 +147,7 @@ public class BoardController {
 		File file=new File(loc+filename);
 		HashMap<String, File>map=new HashMap<>();
 		map.put("action", file);
-		return new ModelAndView("download",map); //downLoad는 servlet-context의 download와 맞아야 함(DownloadView.java)
+		return new ModelAndView("download",map); //download는 servlet-context의 download와 맞아야 함(DownloadView.java)
 	}
 	
 	
