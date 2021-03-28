@@ -118,14 +118,12 @@ $(function(){
 </tr>
 </thead>
 <tbody>
-<c:forEach var="i" items="${list }" varStatus="cnt" begin="0" end="0">
 <tr align="center">
 <td>${selectInfo.no }</td>
 <td>${selectInfo.title }</td>
 <td>${selectInfo.writer }</td>
 <td>${selectInfo.regdate }</td>
 </tr>
-</c:forEach>
 <tr>
 <td colspan="4" align="center">
 <div class="contentss">
