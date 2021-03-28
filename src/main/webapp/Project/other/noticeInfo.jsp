@@ -120,7 +120,7 @@ $(function(){
 <tbody>
 <c:forEach var="i" items="${list }" varStatus="cnt" begin="0" end="0">
 <tr align="center">
-<td>${cnt.count }</td>
+<td>${selectInfo.no }</td>
 <td>${selectInfo.title }</td>
 <td>${selectInfo.writer }</td>
 <td>${selectInfo.regdate }</td>
