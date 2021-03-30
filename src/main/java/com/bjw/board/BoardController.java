@@ -50,8 +50,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="boardList.do")
-	public String listBoard(Model model) throws Exception{
-		model.addAttribute("list",service.selectBoard());
+	public String listBoard(Model model, String page) throws Exception{
+		PageBean pageBean = service.pageing(page);
+		model.addAttribute("list",service.selectBoard(pageBean.getStart(),pageBean.getEnd()));
+		model.addAttribute("pageBean", pageBean);
+		System.out.println(page);
 		return "Project/other/notice";
 	}
 	
@@ -59,7 +62,7 @@ public class BoardController {
 	public String selectInfo(int no,String job,Model model,String filenamez) throws Exception {
 		if(job!=null && job.equals("ninfo")) {
 			service.updateHitBoard(no);
-			model.addAttribute("list",service.selectBoard());
+			//model.addAttribute("list",service.selectBoard());
 			model.addAttribute("selectInfo",service.selectInfo(no));
 			return "Project/other/noticeInfo";
 		}
@@ -74,7 +77,7 @@ public class BoardController {
 	
 	@RequestMapping(value="boardModify.do")
 	public String boardModify(Model model,int no) throws Exception {
-		model.addAttribute("list",service.selectBoard());
+		//model.addAttribute("list",service.selectBoard());
 		model.addAttribute("selectInfo",service.selectInfo(no));
 		return "Project/other/noticeModify";
 	}
@@ -149,6 +152,7 @@ public class BoardController {
 		map.put("action", file);
 		return new ModelAndView("download",map); //download는 servlet-context의 download와 맞아야 함(DownloadView.java)
 	}
+	
 	
 	
 	

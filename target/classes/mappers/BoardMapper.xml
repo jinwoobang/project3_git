@@ -7,8 +7,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT INTO NOTICEBOARD VALUES(NOTICEBOARD_SEQ.NEXTVAL,#{title},#{writer},#{contents},#{filename},SYSDATE,#{hit})
 	</insert>
 	
-	<select id="selectBoard" resultType="com.bjw.board.BoardBean">
-		SELECT * FROM NOTICEBOARD
+	<select id="selectBoard" resultType="com.bjw.board.BoardBean" parameterType="java.util.HashMap">
+		SELECT RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
+FROM (
+        SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
+        FROM (SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
+              FROM (SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
+                    FROM NOTICEBOARD
+                    ORDER BY REGDATE DESC ))
+        )WHERE RM BETWEEN #{start} AND #{end}
+        
 	</select>
 	
 	<delete id="deleteBoard" parameterType="int">
@@ -43,5 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE TITLE LIKE '%'||#{VALUE}||'%' OR
 	WRITER LIKE '%'||#{VALUE}||'%' -->
+	</select>
+	
+	<select id="replyTotalRow" resultType="int">
+		SELECT COUNT(*) FROM NOTICEBOARD
 	</select>
 </mapper>

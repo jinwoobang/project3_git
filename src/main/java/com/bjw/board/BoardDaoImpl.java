@@ -21,8 +21,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardBean> selectBoard() throws Exception {
-		return sql.selectList(namespace+".selectBoard");
+	public List<BoardBean> selectBoard(HashMap<String, Integer>map) throws Exception {
+		return sql.selectList(namespace+".selectBoard",map);
 	}
 
 	@Override
@@ -67,5 +67,14 @@ public class BoardDaoImpl implements BoardDao {
 		/*return sql.selectList(namespace+".searchBoard",search);*/
 		return sql.selectList(namespace+".searchBoard",map);
 	}
+
+	@Override
+	public int replyTotalRow() {
+		return sql.selectOne(namespace+".replyTotalRow");
+	}
+	
+	
+	
+	
 	
 }

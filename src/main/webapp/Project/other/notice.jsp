@@ -77,6 +77,7 @@
 	margin-left:1080px;
 	
 }
+
 </style>
 </head>
 <body>
@@ -117,10 +118,61 @@
 </tbody>
 </table>
 <input type="button" id="writer" value="글쓰기">
-<div class="page_main">
-<p id="number">1</p>
-<p>2</p>
-<p>3</p>
+<div class="page_main" align="center">
+ <a href="/web/boardList.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+                  <c:choose>
+                    <c:when test="${pageBean.currentBlock > 1 }">
+                    <a href="/web/boardList.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
+                    
+                    </c:when>
+                    <c:otherwise>
+                   	<img alt="" src="/web/Project/img/chevron-left.svg">
+                    </c:otherwise>
+                  </c:choose>                                                        
+                  <span id="numberb">
+                 <%--  <c:choose>
+                    <c:when test="${pageBean.currentPage > 1 }">
+                    <a href="/web/boardList.do?page=${pageBean.currentPage-1 }">Before</a>
+                    </c:when>
+                    <c:otherwise>
+                   Before
+                    </c:otherwise>
+                  </c:choose> --%>
+                  
+                  
+                  <c:forEach var="i" begin="${pageBean.startPage }" end="${pageBean.endPage }">
+                     <c:choose>
+                       <c:when test="${pageBean.currentPage eq i }">
+                         <a href="#"><font color="red" size="4">[${i}]</font></a>
+                       </c:when>
+                       <c:otherwise>
+                       <a href="/web/boardList.do?page=${i}"><font size="4">[${i}]</font></a>
+                       </c:otherwise>
+                     </c:choose>
+                   
+                     </c:forEach>                     
+                  </span>
+                 <%--  <c:choose>
+                    <c:when test="${pageBean.totalPage > pageBean.currentPage }">
+                    	<a href="/web/boardList.do?page=${pageBean.currentPage+1 }">Next</a>
+                    </c:when>
+                    <c:otherwise>
+                    Next
+                    </c:otherwise>
+                  </c:choose> --%>
+                              
+					
+					<c:choose>
+						<c:when test="${pageBean.totalPage > pageBean.endPage }">
+						<a href="/web/boardList.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						</c:when>
+						<c:otherwise>
+							<img alt="" src="/web/Project/img/chevron-right.svg">
+						</c:otherwise>
+					</c:choose>
+                  <a href="/web/boardList.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
+                  
+                  
 </div>
 </div>
 </body>
