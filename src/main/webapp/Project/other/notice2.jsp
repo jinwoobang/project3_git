@@ -119,10 +119,10 @@
 </table>
 <input type="button" id="writer" value="글쓰기">
 <div class="page_main" align="center">
- <a href="/web/boardList.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+ <a href="/web/noticeSearch.do?query=${query }&search=${search }&page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
                   <c:choose>
                     <c:when test="${pageBean.currentBlock > 1 }">
-                    <a href="/web/boardList.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
+                    <a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
                     
                     </c:when>
                     <c:otherwise>
@@ -146,7 +146,7 @@
                          <a href="#"><font color="red" size="4">[${i}]</font></a>
                        </c:when>
                        <c:otherwise>
-                       <a href="/web/boardList.do?page=${i}"><font size="4">[${i}]</font></a>
+                       <a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${i}"><font size="4">[${i}]</font></a>
                        </c:otherwise>
                      </c:choose>
                    
@@ -164,13 +164,13 @@
 					
 					<c:choose>
 						<c:when test="${pageBean.totalPage > pageBean.endPage }">
-						<a href="/web/boardList.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						<a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
 						</c:when>
 						<c:otherwise>
 							<img alt="" src="/web/Project/img/chevron-right.svg">
 						</c:otherwise>
 					</c:choose>
-                  <a href="/web/boardList.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
+                  <a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
                   
                   
 </div>

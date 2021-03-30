@@ -12,6 +12,6 @@ public interface BoardService {
 	public List<BoardBean> newOrder() throws Exception;
 	public List<BoardBean> oldOrder() throws Exception;
 	/*public List<BoardBean> searchBoard(String search) throws Exception;*/
-	public List<BoardBean> searchBoard(String search,String query) throws Exception;
+	public List<BoardBean> searchBoard(String search,String query,int start,int end) throws Exception;
 	public PageBean pageing (String page);
 }

@@ -13,6 +13,7 @@ public interface BoardDao {
 	public List<BoardBean> newOrder() throws Exception;
 	public List<BoardBean> oldOrder() throws Exception;
 	/*public List<BoardBean> searchBoard(String search) throws Exception;*/
-	public List<BoardBean> searchBoard(String search,String query) throws Exception;
+	/*public List<BoardBean> searchBoard(String search,String query) throws Exception;*/
+	public List<BoardBean> searchBoard(HashMap<String, Object>map) throws Exception;
 	public int replyTotalRow();
 }

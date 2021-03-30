@@ -8,14 +8,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="selectBoard" resultType="com.bjw.board.BoardBean" parameterType="java.util.HashMap">
-		SELECT RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
-FROM (
-        SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
-        FROM (SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
-              FROM (SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
-                    FROM NOTICEBOARD
-                    ORDER BY REGDATE DESC ))
-        )WHERE RM BETWEEN #{start} AND #{end} 
+		SELECT RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD ORDER BY REGDATE DESC))
+		WHERE RM BETWEEN #{start} AND #{end}
         
 	</select>
 	
@@ -43,9 +39,15 @@ FROM (
 		SELECT * FROM NOTICEBOARD ORDER BY REGDATE
 	</select>
 	
-	<select id="searchBoard" parameterType="java.util.HashMap" resultType="com.bjw.board.BoardBean">
+	<!-- <select id="searchBoard" parameterType="java.util.HashMap" resultType="com.bjw.board.BoardBean">
 		 SELECT NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE
-		 <if test="query!=null and search!=null">${query} LIKE '%'||#{search}||'%'</if>
+		 <if test="query!=null and search!=null">${query} LIKE '%'||#{search}||'%'</if> -->
+		 
+		 <select id="searchBoard" parameterType="java.util.HashMap" resultType="com.bjw.board.BoardBean"> 
+		 SELECT RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD WHERE <if test="query!=null and search!=null">${query} LIKE '%'||#{search}||'%'</if> ORDER BY REGDATE DESC))
+		WHERE RM BETWEEN #{start} AND #{end}
 		 
 		
 		

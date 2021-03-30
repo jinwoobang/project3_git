@@ -136,11 +136,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="noticeSearch.do")
-	public String searchBoard(String search,String query,Model model) throws Exception {
+	public String searchBoard(String search,String query,Model model,String page) throws Exception {
 		System.out.println(query);
+		System.out.println(page);
+		PageBean pageBean = service.pageing(page);
+		model.addAttribute("pageBean", pageBean); 
 		/*model.addAttribute("list",service.searchBoard(search));*/
-		model.addAttribute("list",service.searchBoard(search,query));
-		return "Project/other/notice";
+		//model.addAttribute("list",service.searchBoard(search,query));
+		model.addAttribute("list",service.searchBoard(search,query,pageBean.getStart(),pageBean.getEnd()));
+		model.addAttribute("search",search);
+		model.addAttribute("query",query);
+		return "Project/other/notice2";
 	}
 	
 	@RequestMapping(value="downloadAction.do")

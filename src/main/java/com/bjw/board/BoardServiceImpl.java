@@ -59,10 +59,16 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardBean> searchBoard(String search,String query) throws Exception {
+	public List<BoardBean> searchBoard(String search,String query,int start,int end) throws Exception {
 		// TODO Auto-generated method stub
 		/*return dao.searchBoard(search);*/
-		return dao.searchBoard(search, query);
+		HashMap<String, Object>map=new HashMap<String,Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("search", search);
+		map.put("query", query);
+		/*return dao.searchBoard(search, query);*/
+		return dao.searchBoard(map);
 	}
 	
 	@Override

@@ -60,11 +60,10 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardBean> searchBoard(String search,String query) throws Exception {
-		HashMap<String, Object>map=new HashMap<>();
+	public List<BoardBean> searchBoard(HashMap<String, Object>map) throws Exception {
+		/*HashMap<String, Object>map=new HashMap<>();
 		map.put("search", search);
-		map.put("query", query);
-		/*return sql.selectList(namespace+".searchBoard",search);*/
+		map.put("query", query);*/
 		return sql.selectList(namespace+".searchBoard",map);
 	}
 
