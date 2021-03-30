@@ -66,8 +66,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-   public PageBean pageing (String page) {
-	   int pageScale=3; // 한페이지 들어가는 게시글 숫자
+	public PageBean pageing (String page) {
+		int pageScale=3; // 한페이지 들어가는 게시글 숫자
 		int currentPage=1; // 현재 페이지
 		int blockScale=3; // <1 2 3> 한번에 보여질 페이징 개수
 	
@@ -84,21 +84,18 @@ public class BoardServiceImpl implements BoardService {
 		int end=pageScale+(currentPage-1)*pageScale; // 마지막 게시글 번호
 		
 		//현재 페이지 범위 구간
-		//int currentBlock=currentPage%pageScale==0?(currentPage/pageScale):(currentPage/pageScale)+1;
 		int currentBlock=currentPage%blockScale==0?(currentPage/blockScale):(currentPage/blockScale)+1;
 		
 		int startPage=1+(currentBlock-1)*blockScale;
-		//int startPage=1+(currentBlock-1)*pageScale;
 		
 		int endPage=blockScale+(currentBlock-1)*blockScale;
-		//int endPage=pageScale+(currentBlock-1)*pageScale;
 		
 		if(endPage>=totalPage){
 			endPage=totalPage;
 		}
-		HashMap<String, Object>map=new HashMap<String,Object>();
+		/*HashMap<String, Object>map=new HashMap<String,Object>();
 		map.put("start", start);
-		map.put("end", end);
+		map.put("end", end);*/
 		PageBean pageBean = new PageBean(totalPage, currentBlock, startPage, endPage, currentPage, start , end);
 		System.out.println(pageBean.toString());
 	   return pageBean;
