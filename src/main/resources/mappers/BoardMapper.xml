@@ -15,7 +15,7 @@ FROM (
               FROM (SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT 
                     FROM NOTICEBOARD
                     ORDER BY REGDATE DESC ))
-        )WHERE RM BETWEEN #{start} AND #{end}
+        )WHERE RM BETWEEN #{start} AND #{end} 
         
 	</select>
 	
