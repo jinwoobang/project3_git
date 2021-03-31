@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -125,22 +127,28 @@ public class BoardController {
 	
 	@RequestMapping(value="new.do")
 	public String newOrder(Model model,String page) throws Exception {
+		String cmd="ordernew";
+		model.addAttribute("cmd",cmd);
 		PageBean pageBean = service.pageing(page);
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("list",service.newOrder(pageBean.getStart(),pageBean.getEnd()));
-		return "Project/other/notice3";
+		return "Project/other/notice";
 	}
 	
 	@RequestMapping(value="old.do")
 	public String oldOrder(Model model,String page) throws Exception {
+		String cmd="orderold";
+		model.addAttribute("cmd",cmd);
 		PageBean pageBean = service.pageing(page);
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("list",service.oldOrder(pageBean.getStart(),pageBean.getEnd()));
-		return "Project/other/notice4";
+		return "Project/other/notice";
 	}
 	
 	@RequestMapping(value="noticeSearch.do")
 	public String searchBoard(String search,String query,Model model,String page) throws Exception {
+		String cmd="search";
+		model.addAttribute("cmd",cmd);
 		System.out.println(query);
 		System.out.println(page);
 		PageBean pageBean = service.pageing(page);
@@ -150,7 +158,7 @@ public class BoardController {
 		model.addAttribute("list",service.searchBoard(search,query,pageBean.getStart(),pageBean.getEnd()));
 		model.addAttribute("search",search);
 		model.addAttribute("query",query);
-		return "Project/other/notice2";
+		return "Project/other/notice";
 	}
 	
 	@RequestMapping(value="downloadAction.do")

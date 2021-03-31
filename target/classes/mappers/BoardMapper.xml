@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bjw.board.mapper">
 	<insert id="insertBoard" parameterType="com.bjw.board.BoardBean">
-	INSERT INTO NOTICEBOARD VALUES(NOTICEBOARD_SEQ.NEXTVAL,#{title},#{writer},#{contents},#{filename},SYSDATE,#{hit})
+	INSERT INTO NOTICEBOARD VALUES(NOTICEBOARD_SEQ.NEXTVAL,#{title},#{writer},#{contents},#{filename,jdbcType=VARCHAR},SYSDATE,#{hit})
 	</insert>
 	
 	<select id="selectBoard" resultType="com.bjw.board.BoardBean" parameterType="java.util.HashMap">

@@ -77,6 +77,7 @@
 <%@include file="/Project/include/header.jsp" %>
 <%@include file="/Project/include/menu.jsp" %>
 <div id="contents">
+<%String cmd=(String)request.getAttribute("cmd"); %>
 <h1>공지사항</h1>
 <div class="aa">
 <a href="/web/new.do?page=1" id="neworder">최신순 |</a>&nbsp;
@@ -112,11 +113,26 @@
 </table>
 <input type="button" id="writer" value="글쓰기">
 <div class="page_main" align="center">
+<%if(cmd=="search"){ %>
+<a href="/web/noticeSearch.do?query=${query }&search=${search }&page=1&cmd=search"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+<%}else if(cmd=="ordernew"){ %>
+<a href="/web/new.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+<%}else if(cmd=="orderold"){ %>
+<a href="/web/old.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+<%}else{ %>
  <a href="/web/boardList.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+<%} %>
                   <c:choose>
                     <c:when test="${pageBean.currentBlock > 1 }">
+                    <%if(cmd=="search"){ %>
+                    <a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
+                    <%}else if(cmd=="ordernew"){ %>
+                    <a href="/web/new.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
+                    <%}else if(cmd=="orderold"){ %> 
+                    <a href="/web/old.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
+                    <%}else{ %>        
                     <a href="/web/boardList.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
-                    
+                    <%} %>
                     </c:when>
                     <c:otherwise>
                    	<img alt="" src="/web/Project/img/chevron-left.svg">
@@ -139,7 +155,15 @@
                          <a href="#"><font color="red" size="4">[${i}]</font></a>
                        </c:when>
                        <c:otherwise>
+                       <%if(cmd=="search"){ %>
+                       <a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${i}"><font size="4">[${i}]</font></a>
+                       <%}else if(cmd=="ordernew"){ %>
+                       <a href="/web/new.do?page=${i}"><font size="4">[${i}]</font></a>
+                       <%}else if(cmd=="orderold"){ %>
+                       <a href="/web/old.do?page=${i}"><font size="4">[${i}]</font></a>
+                       <%}else{ %>
                        <a href="/web/boardList.do?page=${i}"><font size="4">[${i}]</font></a>
+                       <%} %>                
                        </c:otherwise>
                      </c:choose>
                    
@@ -157,14 +181,29 @@
 					
 					<c:choose>
 						<c:when test="${pageBean.totalPage > pageBean.endPage }">
+						<%if(cmd=="search"){ %>
+						<a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						<%}else if(cmd=="ordernew"){ %>
+						<a href="/web/new.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						<%}else if(cmd=="orderold"){ %>
+						<a href="/web/old.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						<%}else{ %>
 						<a href="/web/boardList.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						<%} %>
 						</c:when>
 						<c:otherwise>
 							<img alt="" src="/web/Project/img/chevron-right.svg">
 						</c:otherwise>
 					</c:choose>
+					<%if(cmd=="search"){ %>
+					<a href="/web/noticeSearch.do?query=${query }&search=${search }&page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
+					<%}else if(cmd=="ordernew"){ %>
+					<a href="/web/new.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
+					<%}else if(cmd=="orderold"){ %>
+					<a href="/web/old.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
+					<%}else{ %>
                   <a href="/web/boardList.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
-                  
+                  	<%} %>
                   
 </div>
 </div>
