@@ -9,8 +9,8 @@ public interface BoardService {
 	public BoardBean selectInfo(int no) throws Exception;
 	public void updateHitBoard(int no) throws Exception;
 	public void modifyBoard(BoardBean bean) throws Exception;
-	public List<BoardBean> newOrder() throws Exception;
-	public List<BoardBean> oldOrder() throws Exception;
+	public List<BoardBean> newOrder(int start,int end) throws Exception;
+	public List<BoardBean> oldOrder(int start,int end) throws Exception;
 	/*public List<BoardBean> searchBoard(String search) throws Exception;*/
 	public List<BoardBean> searchBoard(String search,String query,int start,int end) throws Exception;
 	public PageBean pageing (String page);

@@ -48,15 +48,21 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardBean> newOrder() throws Exception {
+	public List<BoardBean> newOrder(int start,int end) throws Exception {
 		// TODO Auto-generated method stub
-		return sql.selectList(namespace+".newOrder");
+		HashMap<String, Integer>map=new HashMap<String,Integer>();
+		map.put("start", start);
+		map.put("end", end);
+		return sql.selectList(namespace+".newOrder",map);
 	}
 
 	@Override
-	public List<BoardBean> oldOrder() throws Exception {
+	public List<BoardBean> oldOrder(int start,int end) throws Exception {
 		// TODO Auto-generated method stub
-		return sql.selectList(namespace+".oldOrder");
+		HashMap<String, Integer>map=new HashMap<String,Integer>();
+		map.put("start", start);
+		map.put("end", end);
+		return sql.selectList(namespace+".oldOrder",map);
 	}
 
 	@Override

@@ -112,10 +112,10 @@
 </table>
 <input type="button" id="writer" value="글쓰기">
 <div class="page_main" align="center">
- <a href="/web/boardList.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+ <a href="/web/new.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
                   <c:choose>
                     <c:when test="${pageBean.currentBlock > 1 }">
-                    <a href="/web/boardList.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
+                    <a href="/web/new.do?page=${pageBean.startPage-1 }"><img alt="" src="/web/Project/img/chevron-left.svg"></a>
                     
                     </c:when>
                     <c:otherwise>
@@ -125,7 +125,7 @@
                   <span id="numberb">
                  <%--  <c:choose>
                     <c:when test="${pageBean.currentPage > 1 }">
-                    <a href="/web/boardList.do?page=${pageBean.currentPage-1 }">Before</a>
+                    <a href="/web/new.do?page=${pageBean.currentPage-1 }">Before</a>
                     </c:when>
                     <c:otherwise>
                    Before
@@ -139,7 +139,7 @@
                          <a href="#"><font color="red" size="4">[${i}]</font></a>
                        </c:when>
                        <c:otherwise>
-                       <a href="/web/boardList.do?page=${i}"><font size="4">[${i}]</font></a>
+                       <a href="/web/new.do?page=${i}"><font size="4">[${i}]</font></a>
                        </c:otherwise>
                      </c:choose>
                    
@@ -147,7 +147,7 @@
                   </span>
                  <%--  <c:choose>
                     <c:when test="${pageBean.totalPage > pageBean.currentPage }">
-                    	<a href="/web/boardList.do?page=${pageBean.currentPage+1 }">Next</a>
+                    	<a href="/web/new.do?page=${pageBean.currentPage+1 }">Next</a>
                     </c:when>
                     <c:otherwise>
                     Next
@@ -157,13 +157,13 @@
 					
 					<c:choose>
 						<c:when test="${pageBean.totalPage > pageBean.endPage }">
-						<a href="/web/boardList.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
+						<a href="/web/new.do?page=${pageBean.endPage+1 }"><img alt="" src="/web/Project/img/chevron-right.svg"></a>
 						</c:when>
 						<c:otherwise>
 							<img alt="" src="/web/Project/img/chevron-right.svg">
 						</c:otherwise>
 					</c:choose>
-                  <a href="/web/boardList.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
+                  <a href="/web/new.do?page=${pageBean.totalPage }"><img alt="" src="/web/Project/img/chevron-double-right.svg"></a>
                   
                   
 </div>

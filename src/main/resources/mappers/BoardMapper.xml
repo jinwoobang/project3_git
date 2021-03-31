@@ -31,12 +31,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	UPDATE NOTICEBOARD SET WRITER=#{writer},TITLE=#{title},CONTENTS=#{contents},FILENAME=#{filename,jdbcType=VARCHAR},REGDATE=SYSDATE WHERE NO=#{no}
 	</update>
 	
-	<select id="newOrder" resultType="com.bjw.board.BoardBean">
-		SELECT * FROM NOTICEBOARD ORDER BY REGDATE DESC
+	<select id="newOrder" resultType="com.bjw.board.BoardBean" parameterType="java.util.HashMap">
+		<!-- SELECT * FROM NOTICEBOARD ORDER BY REGDATE DESC -->
+		SELECT RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD ORDER BY REGDATE DESC))
+		WHERE RM BETWEEN #{start} AND #{end}
 	</select>
 	
-	<select id="oldOrder" resultType="com.bjw.board.BoardBean">
-		SELECT * FROM NOTICEBOARD ORDER BY REGDATE
+	<select id="oldOrder" resultType="com.bjw.board.BoardBean" parameterType="java.util.HashMap">
+		<!--  SELECT * FROM NOTICEBOARD ORDER BY REGDATE -->
+		SELECT RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM,NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM(
+		SELECT ROWNUM RM, NO, TITLE, WRITER, CONTENTS, FILENAME, REGDATE, HIT FROM NOTICEBOARD ORDER BY REGDATE))
+		WHERE RM BETWEEN #{start} AND #{end}
 	</select>
 	
 	<!-- <select id="searchBoard" parameterType="java.util.HashMap" resultType="com.bjw.board.BoardBean">

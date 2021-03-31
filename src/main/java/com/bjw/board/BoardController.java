@@ -124,15 +124,19 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="new.do")
-	public String newOrder(Model model) throws Exception {
-		model.addAttribute("list",service.newOrder());
-		return "Project/other/notice";
+	public String newOrder(Model model,String page) throws Exception {
+		PageBean pageBean = service.pageing(page);
+		model.addAttribute("pageBean", pageBean);
+		model.addAttribute("list",service.newOrder(pageBean.getStart(),pageBean.getEnd()));
+		return "Project/other/notice3";
 	}
 	
 	@RequestMapping(value="old.do")
-	public String oldOrder(Model model) throws Exception {
-		model.addAttribute("list",service.oldOrder());
-		return "Project/other/notice";
+	public String oldOrder(Model model,String page) throws Exception {
+		PageBean pageBean = service.pageing(page);
+		model.addAttribute("pageBean", pageBean);
+		model.addAttribute("list",service.oldOrder(pageBean.getStart(),pageBean.getEnd()));
+		return "Project/other/notice4";
 	}
 	
 	@RequestMapping(value="noticeSearch.do")

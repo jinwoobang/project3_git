@@ -49,13 +49,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardBean> newOrder() throws Exception {
-		return dao.newOrder();
+	public List<BoardBean> newOrder(int start, int end) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.newOrder(start, end);
 	}
 
 	@Override
-	public List<BoardBean> oldOrder() throws Exception {
-		return dao.oldOrder();
+	public List<BoardBean> oldOrder(int start, int end) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.oldOrder(start, end);
 	}
 
 	@Override

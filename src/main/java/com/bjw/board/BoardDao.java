@@ -10,8 +10,8 @@ public interface BoardDao {
 	public BoardBean selectInfo(int no) throws Exception;
 	public void updateHitBoard(int no) throws Exception;
 	public void modifyBoard(BoardBean bean) throws Exception;
-	public List<BoardBean> newOrder() throws Exception;
-	public List<BoardBean> oldOrder() throws Exception;
+	public List<BoardBean> newOrder(int start,int end) throws Exception;
+	public List<BoardBean> oldOrder(int start,int end) throws Exception;
 	/*public List<BoardBean> searchBoard(String search) throws Exception;*/
 	/*public List<BoardBean> searchBoard(String search,String query) throws Exception;*/
 	public List<BoardBean> searchBoard(HashMap<String, Object>map) throws Exception;
