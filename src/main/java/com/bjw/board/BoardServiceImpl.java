@@ -77,7 +77,7 @@ public class BoardServiceImpl implements BoardService {
 	public PageBean pageing (String page) {
 		int pageScale=3; // 한페이지 들어가는 게시글 숫자
 		int currentPage=1; // 현재 페이지
-		int blockScale=3; // <1 2 3> 한번에 보여질 페이징 개수
+		int blockScale=2; // <1 2 3> 한번에 보여질 페이징 개수
 	
 		int totalRow=dao.replyTotalRow(); //총 행의 갯수(게시글 갯수)
 		System.out.println(totalRow);

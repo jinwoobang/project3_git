@@ -114,7 +114,7 @@
 <input type="button" id="writer" value="글쓰기">
 <div class="page_main" align="center">
 <%if(cmd=="search"){ %>
-<a href="/web/noticeSearch.do?query=${query }&search=${search }&page=1&cmd=search"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
+<a href="/web/noticeSearch.do?query=${query }&search=${search }&page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
 <%}else if(cmd=="ordernew"){ %>
 <a href="/web/new.do?page=1"><img alt="" src="/web/Project/img/chevron-double-left.svg"></a>
 <%}else if(cmd=="orderold"){ %>
