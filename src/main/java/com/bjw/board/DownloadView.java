@@ -24,14 +24,14 @@ public class DownloadView extends AbstractView {
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		response.setContentType(this.getContentType());
-		File file=(File)model.get("action");
+		File file=(File)model.get("action"); //전송받은 모델(파일 정보)
 		response.setContentLength((int)file.length());
-		String userAgent=request.getHeader("User-Agent");
+		String userAgent=request.getHeader("User-Agent"); //브라우저, 운영체제 정보
 		
 		String filename="";
 		filename=new String(file.getName().getBytes());
-		response.setHeader("Content-Disposition", "attachment;fileName=\""+filename);
-		response.setHeader("Content-Transfer-Encoding", "binary");
+		response.setHeader("Content-Disposition", "attachment;fileName=\""+filename); //Content-Disposition속성 이용 / 데이터 형식 지정 / attachment로 지정되어 있는 첨부파일 을 말함
+		response.setHeader("Content-Transfer-Encoding", "binary"); // 전송되는 데이터의 안에 내용물들의 인코딩 방식  = binary 방식을 택함
 		
 		OutputStream out=response.getOutputStream();
 		FileInputStream fis=null;
