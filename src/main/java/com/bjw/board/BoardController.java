@@ -50,7 +50,6 @@ public class BoardController {
 		service.insertBoard(bean);
 		return "redirect:boardList.do";
 	}
-	
 	@RequestMapping(value="boardList.do")
 	public String listBoard(Model model, String page) throws Exception{
 		PageBean pageBean = service.pageing(page);
